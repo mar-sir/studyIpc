@@ -48,4 +48,9 @@ private ServiceConnection  connection;
     public void goMessenger(View view) {
         startActivity(new Intent(this,MessengerActivity.class));
     }
+
+
+    public void goAidl(View view){
+      startActivity(new Intent(this,AidlActivity.class));
+    }
 }

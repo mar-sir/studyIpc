@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.activityservice.MainActivity">
 
-   <Button
-       android:layout_width="wrap_content"
-       android:text="下載"
-       android:id="@+id/down_load"
-       android:layout_centerInParent="true"
-       android:onClick="downloadAction"
-       android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
 
-   <Button
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_below="@+id/down_load"
-       android:layout_centerHorizontal="true"
-       android:onClick="goMessenger"
-       android:text="信使通信"
-       />
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/down_load"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="downloadAction"
+            android:layout_margin="3dp"
+            android:text="下载(binder)" />
+
+        <Button
+            android:id="@+id/gomessenger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:onClick="goMessenger"
+            android:text="信使通信" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:onClick="goAidl"
+            android:text="Aidl" />
+    </LinearLayout>
+
 </RelativeLayout>

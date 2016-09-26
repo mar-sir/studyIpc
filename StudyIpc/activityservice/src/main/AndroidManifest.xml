@@ -17,9 +17,19 @@
         </activity>
 
         <service android:name=".service.ServiceA" />
-        <service android:name=".service.MessengerService" android:process=":messengerServerce"></service>
+        <service
+            android:name=".service.MessengerService"
+            android:process=":messengerServerce" />
 
-        <activity android:name=".MessengerActivity"></activity>
+        <activity android:name=".MessengerActivity" />
+
+        <service
+            android:name=".service.AidlService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":aidlService" />
+
+        <activity android:name=".AidlActivity"></activity>
     </application>
 
 </manifest>
