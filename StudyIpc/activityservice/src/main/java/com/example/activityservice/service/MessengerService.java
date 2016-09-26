@@ -67,8 +67,6 @@ public class MessengerService extends Service {
                     super.handleMessage(msg);
                     break;
             }
-
-
         }
     }
 }
