@@ -3,7 +3,6 @@ package com.example.activityservice;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.nfc.Tag;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
@@ -59,7 +58,6 @@ public class MessengerActivity extends AppCompatActivity {
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.e(TAG, TAG + "-->MessengerConnection connected");
             messenger = new Messenger(service);
-
             mBound = true;
         }
 
@@ -69,7 +67,5 @@ public class MessengerActivity extends AppCompatActivity {
             mBound = false;
         }
     }
-
-
 
 }

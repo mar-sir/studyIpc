@@ -17,6 +17,8 @@ public class AidlActivity extends AppCompatActivity {
     private ServiceConnection serviceConnection;
 
     private MyDictionaryAidl myDictionaryAidl;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,14 +27,15 @@ public class AidlActivity extends AppCompatActivity {
         initConnection();
 
         startService();
+
     }
 
     private void initConnection() {
         serviceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                myDictionaryAidl= MyDictionaryAidl.Stub.asInterface(iBinder);
-                Toast.makeText(getApplicationContext(),"链接成功",Toast.LENGTH_SHORT).show();
+                myDictionaryAidl = MyDictionaryAidl.Stub.asInterface(iBinder);
+                Toast.makeText(getApplicationContext(), "链接成功", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -49,27 +52,32 @@ public class AidlActivity extends AppCompatActivity {
     }
 
     public void add(View view) {
-       if (myDictionaryAidl!=null){
-           try {
-               myDictionaryAidl.add("你好","hello");
-           } catch (RemoteException e) {
-               e.printStackTrace();
-           }
-       }else{
-           Toast.makeText(getApplicationContext(),"myDictionaryAidl==null",Toast.LENGTH_SHORT).show();
-       }
-    }
-
-    public void search(View view) {
-        if (myDictionaryAidl!=null){
+        if (myDictionaryAidl != null) {
             try {
-                String words = myDictionaryAidl.search("你好");
-                Toast.makeText(getApplicationContext(),words,Toast.LENGTH_SHORT).show();
+                myDictionaryAidl.add("你好", "hello");
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
-        }else{
-            Toast.makeText(getApplicationContext(),"myDictionaryAidl==null",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "myDictionaryAidl==null", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void search(View view) {
+        if (myDictionaryAidl != null) {
+            try {
+                String words = myDictionaryAidl.search("你好");
+                Toast.makeText(getApplicationContext(), words, Toast.LENGTH_SHORT).show();
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "myDictionaryAidl==null", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void goBook(View view) {
+        startActivity(new Intent(this,StudentActivity.class));
+    }
+
 }

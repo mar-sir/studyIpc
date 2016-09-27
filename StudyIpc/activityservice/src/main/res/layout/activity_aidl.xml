@@ -21,6 +21,15 @@
             android:onClick="search"
             android:layout_height="wrap_content"
             android:text="查询"/>
+
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bookAidl"
+            android:onClick="goBook"/>
     </LinearLayout>
 
 </RelativeLayout>

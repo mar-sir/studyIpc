@@ -1,15 +1,11 @@
 package com.example.activityservice.service;
-
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
-
 import com.example.activityservice.aidl.MyDictionaryAidl;
-
 import java.util.HashMap;
-
 public class AidlService extends Service {
     private HashMap<String,String>myDictionary=new HashMap<>();
     public static final String TAG=AidlService.class.getSimpleName();
@@ -42,6 +38,10 @@ public class AidlService extends Service {
         Log.e(TAG,TAG+"--->"+"onStartCommand()");
         return super.onStartCommand(intent, flags, startId);
     }
+
+
+
+
 
     @Override
     public void onDestroy() {
