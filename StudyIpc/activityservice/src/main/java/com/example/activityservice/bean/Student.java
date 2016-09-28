@@ -23,7 +23,9 @@ public class Student implements Parcelable {
         dest.writeString(this.address);
     }
 
-    public Student() {
+    public Student(String name,String address) {
+        this.address=address;
+        this.name=name;
     }
 
     protected Student(Parcel in) {
