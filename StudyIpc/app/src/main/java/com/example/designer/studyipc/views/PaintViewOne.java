@@ -11,7 +11,7 @@ import android.view.View;
 /**
  * Created by huangcl on 2016/10/11.
  */
-public class ViewOne extends View {
+public class PaintViewOne extends View {
 
     /**
      * Paint
@@ -53,20 +53,21 @@ public class ViewOne extends View {
 
 
     private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);//定义抗锯齿画笔
+    public static final String TAG=PaintViewOne.class.getSimpleName();
 
-    public ViewOne(Context context, AttributeSet attrs) {
+    public PaintViewOne(Context context, AttributeSet attrs) {
         super(context, attrs);
         //画笔初始化都的写在构造函数内，不然可能导致频繁初始化，要是又频繁实例化就更不好了。
         init();
     }
 
 
-    public ViewOne(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PaintViewOne(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
-    public ViewOne(Context context) {
+    public PaintViewOne(Context context) {
         super(context);
         init();
     }
@@ -78,6 +79,19 @@ public class ViewOne extends View {
     }
 
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        Log.e(TAG,TAG+"------->onMeasure()");
+    }
+
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        Log.e(TAG,TAG+"------->onLayout()");
+    }
+
     /**
      * 重写onDraw()方法，会被频繁调用
      * @param canvas
@@ -85,6 +99,7 @@ public class ViewOne extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        Log.e(TAG,TAG+"------->onDraw()");
         canvas.drawColor(Color.RED);//设置画布颜色
         paint.setTextSize(40);
         canvas.drawText("画一条点（0，100）到点（200，200）的线",0,100,paint);//第二，三 两个参数是表示距离x,y,轴的距离.
@@ -104,12 +119,12 @@ public class ViewOne extends View {
         paint.setStyle(Paint.Style.STROKE);
         canvas.drawCircle(500,600,500,paint);//x,y（500，600）确定一个点，半径500
 
-        canvas.drawRoundRect(getLeft(),getTop(),getRight(),getBottom(),200,300,paint);
+//        canvas.drawRoundRect(getLeft(),getTop(),getRight(),getBottom(),200,300,paint);
 
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
         canvas.drawRect(300,200,800,600,paint);
         paint.setColor(Color.WHITE);
         //前四个参数为矩形，范围，90代表从90度（0度在手表三点中方形）开始画，200度处结束
-        canvas.drawArc(300,200,800,600,90,200,true,paint);
+       // canvas.drawArc(300,200,800,600,90,200,true,paint);
     }
 }

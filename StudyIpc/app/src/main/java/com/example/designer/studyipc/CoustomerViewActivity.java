@@ -8,6 +8,11 @@ import android.os.Bundle;
 
 import com.example.designer.studyipc.adapter.ViewAdapter;
 import com.example.designer.studyipc.fragments.FirstViewFragment;
+import com.example.designer.studyipc.fragments.FiveFragment;
+import com.example.designer.studyipc.fragments.FontFragmentOne;
+import com.example.designer.studyipc.fragments.FourFragment;
+import com.example.designer.studyipc.fragments.SecondViewFragment;
+import com.example.designer.studyipc.fragments.ThreeFragment;
 
 import java.util.ArrayList;
 
@@ -31,7 +36,17 @@ public class CoustomerViewActivity extends AppCompatActivity {
 
     private void initViews() {
         fragments.add(new FirstViewFragment());
+        fragments.add(new SecondViewFragment());
+        fragments.add(new ThreeFragment());
+        fragments.add(new FourFragment());
+        fragments.add(new FiveFragment());
+        fragments.add(new FontFragmentOne());
         titles.add("自定义View1");
+        titles.add("自定义View2");
+        titles.add("自定义View3");
+        titles.add("自定义View4");
+        titles.add("自定义View5");
+        titles.add("自定义View6");
         viewAdapter = new ViewAdapter(getSupportFragmentManager(), titles, fragments);
         viewPager.setAdapter(viewAdapter);
         tabLayout.setupWithViewPager(viewPager);
