@@ -59,17 +59,20 @@ public class PaintViewOne extends View {
         super(context, attrs);
         //画笔初始化都的写在构造函数内，不然可能导致频繁初始化，要是又频繁实例化就更不好了。
         init();
+        Log.e(TAG,TAG+"------->PaintViewOne()");
     }
 
 
     public PaintViewOne(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
+        Log.e(TAG,TAG+"------->PaintViewOne()");
     }
 
     public PaintViewOne(Context context) {
         super(context);
         init();
+        Log.e(TAG,TAG+"------->PaintViewOne()");
     }
     private void init() {
         paint.setColor(Color.YELLOW);
@@ -78,6 +81,12 @@ public class PaintViewOne extends View {
         paint.setStyle(Paint.Style.STROKE);//"Paint.Style.STROKE：描边 Paint.Style.FILL_AND_STROKE：描边并填充 Paint.Style.FILL：填充";
     }
 
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        Log.e(TAG,TAG+"------->onSizeChanged()");
+    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
