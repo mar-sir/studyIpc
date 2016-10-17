@@ -1,4 +1,4 @@
-package com.example.designer.studyipc;
+package com.example.jxlexample;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,11 +13,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void goCoustomerView(View view) {
-        startActivity(new Intent(this, CoustomerViewActivity.class));
-    }
-
-    public void goView1(View view) {
-        startActivity(new Intent(this, CoustomerView2Activity.class));
+    public void doPrint(View view) {
+        Intent intent = new Intent(this, PrintActivity.class);
+        intent.putExtra("name", "打印文稿");
+        startActivity(intent);
     }
 }

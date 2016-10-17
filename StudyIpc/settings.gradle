@@ -1,1 +1,1 @@
-include ':app', ':activityservice'
+include ':app', ':activityservice', ':jxlexample'

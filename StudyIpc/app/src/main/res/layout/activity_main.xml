@@ -7,16 +7,30 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:gravity="center"
+            android:background="#0a4"
             android:clickable="true"
+            android:gravity="center"
             android:onClick="goCoustomerView"
-            android:text="自定义View" />
+            android:text="自定义View"
+            android:textColor="#fff" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="#0a4"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="goView1"
+            android:text="自定义View1"
+            android:textColor="#fff" />
     </LinearLayout>
 
 

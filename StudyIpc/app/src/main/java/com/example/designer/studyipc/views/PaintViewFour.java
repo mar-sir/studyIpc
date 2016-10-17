@@ -90,4 +90,7 @@ public class PaintViewFour extends View {
         canvas.drawBitmap(bitmap,getWidth()/2-bitmap.getWidth()/2,bitmap.getHeight()*3+40,paint);
 
     }
+
+
+
 }
