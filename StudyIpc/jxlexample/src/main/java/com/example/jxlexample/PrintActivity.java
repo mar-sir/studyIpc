@@ -4,17 +4,14 @@ package com.example.jxlexample;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import com.example.jxlexample.enums.EnumPrint;
 import com.example.jxlexample.model.MoudleInstance;
 import com.example.jxlexample.utils.FileUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
-
 import jxl.Workbook;
 import jxl.format.Alignment;
 import jxl.format.Border;
@@ -272,7 +269,6 @@ public class PrintActivity extends AppCompatActivity {
         }
     }
 
-
     private void initEnums() {
         enums.add(EnumPrint.ENUM_1);
         enums.add(EnumPrint.ENUM_2);
@@ -308,5 +304,4 @@ public class PrintActivity extends AppCompatActivity {
         enums.add(EnumPrint.ENUM_32);
         enums.add(EnumPrint.ENUM_33);
     }
-
 }
