@@ -17,6 +17,7 @@ public class MyService1 extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.e(TAG, TAG +"Thread id: "+ Thread.currentThread().getId());
         Log.e(TAG, TAG + "-->onCreate()");
     }
 

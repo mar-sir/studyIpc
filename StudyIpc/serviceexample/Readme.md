@@ -115,3 +115,46 @@
 ![](https://github.com/mar-sir/studyIpc/blob/master/StudyIpc/serviceexample/src/main/java/images/step3.png?raw=true)
 你会发现就调用了一次onCreate(),这是由于onCreate()方法只会在Service第一次被创建的时候调用，如果当前Service已经被创建过了，
 不管怎样调用startService()方法，onCreate()方法都不会再执行,而onStartCommand()不是。
+#### bindService
+
+    public class MainActivity extends AppCompatActivity {
+        private ServiceConnection connection;//服务连接
+        public static final String TAG = MainActivity.class.getSimpleName();
+    
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            //实现连接的回调
+            connection = new ServiceConnection() {
+                @Override
+                public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                    Log.e(TAG, "onServiceConnected（）+");
+                }
+    
+                @Override
+                public void onServiceDisconnected(ComponentName componentName) {
+    
+                }
+            };
+        }
+    
+    
+        public void bind(View view) {
+            Intent intent = new Intent(this, MyService1.class);
+            bindService(intent, connection, BIND_AUTO_CREATE);
+        }
+    
+        public void unbind(View view) {
+            unbindService(connection);
+        }
+        
+        
+    }
+  
+这里bindService需要传三个参数,第1个参数中将Intent传递给bindService()函数，声明需要启动的Service 第二个参数是前面创建出的ServiceConnection的实例,
+不能为空，第3个参数Context.BIND_AUTO_CREATE表明只要绑定存在，就自动建立Service。
+点击bind启动服务，点击unbind停止服务。就看一下它的生命周期。onCreate()-->onBind()-->onUnbind()-->onDestroy();
+![](https://github.com/mar-sir/studyIpc/blob/master/StudyIpc/serviceexample/src/main/java/images/step4.png?raw=true)
+###### 服务是运行在主线程中的，不信你可以分别在MainActivity和MyService1的onCreate()方法中打印Log.e(TAG, TAG +"Thread id: "+ Thread.currentThread().getId());它们的线程ID是一样的。
+
