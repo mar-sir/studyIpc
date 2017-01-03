@@ -1,5 +1,6 @@
 ### Service（服务）
 #### 服务的生命周期
+![](https://github.com/mar-sir/studyIpc/blob/master/StudyIpc/serviceexample/src/main/java/images/step1.gif?raw=true)
 #### 服务的分类
 * 远程服务---->运行在不同的进程中的服务。
  通过对android:process=":service"属性指定不同进程。
@@ -108,8 +109,9 @@
     }
 点击start启动服务，点击stop停止服务。就看一下它的生命周期。onCreate()-->onStartCommand()-->onDestroy();
 
+![](https://github.com/mar-sir/studyIpc/blob/master/StudyIpc/serviceexample/src/main/java/images/step2.png?raw=true)
 
 多次点击start启动服务，会是什么现象？
-
+![](https://github.com/mar-sir/studyIpc/blob/master/StudyIpc/serviceexample/src/main/java/images/step3.png?raw=true)
 你会发现就调用了一次onCreate(),这是由于onCreate()方法只会在Service第一次被创建的时候调用，如果当前Service已经被创建过了，
 不管怎样调用startService()方法，onCreate()方法都不会再执行,而onStartCommand()不是。
