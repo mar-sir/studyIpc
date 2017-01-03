@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/activityservice/activityservice.iml" filepath="$PROJECT_DIR$/activityservice/activityservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/jxlexample/jxlexample.iml" filepath="$PROJECT_DIR$/jxlexample/jxlexample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serviceexample/serviceexample.iml" filepath="$PROJECT_DIR$/serviceexample/serviceexample.iml" />
     </modules>
   </component>
 </project>

@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/activityservice" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/jxlexample" />
+            <option value="$PROJECT_DIR$/serviceexample" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

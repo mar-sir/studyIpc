@@ -7,6 +7,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class AidlActivity extends AppCompatActivity {
         setContentView(R.layout.activity_aidl);
 
         initConnection();
+        Log.e(AidlActivity.class.getSimpleName(), AidlActivity.class.getSimpleName() + android.os.Process.myPid() + "");
 
         startService();
 
@@ -66,7 +68,7 @@ public class AidlActivity extends AppCompatActivity {
     public void search(View view) {
         if (myDictionaryAidl != null) {
             try {
-                String words = myDictionaryAidl.search("你好");
+                String words = myDictionaryAidl.search("id");
                 Toast.makeText(getApplicationContext(), words, Toast.LENGTH_SHORT).show();
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -77,7 +79,7 @@ public class AidlActivity extends AppCompatActivity {
     }
 
     public void goBook(View view) {
-        startActivity(new Intent(this,StudentActivity.class));
+        startActivity(new Intent(this, StudentActivity.class));
     }
 
 }

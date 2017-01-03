@@ -57,6 +57,7 @@ public class CanvasViewOne extends View {
         }
     }
 
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);

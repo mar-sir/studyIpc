@@ -3,7 +3,6 @@ package com.example.activityservice;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.os.Binder;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +19,6 @@ private ServiceConnection  connection;
         setContentView(R.layout.activity_main);
 
         initConnection();
-
         Intent intent=new Intent(this,ServiceA.class);
         bindService(intent,connection,BIND_AUTO_CREATE);
 
