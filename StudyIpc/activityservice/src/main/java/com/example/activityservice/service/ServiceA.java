@@ -2,10 +2,8 @@ package com.example.activityservice.service;
 
 import android.app.Service;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Binder;
 import android.os.IBinder;
-import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;

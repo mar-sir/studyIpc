@@ -9,13 +9,53 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+            <!--
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+            -->
+        </activity>
+
+        <service android:name=".services.MyService1" />
+
+        <activity android:name=".BinderActivity">
+
+            <!--
+              <intent-filter>
+                  <action android:name="android.intent.action.MAIN" />
+
+                  <category android:name="android.intent.category.LAUNCHER" />
+              </intent-filter>
+            -->
+        </activity>
+
+        <service android:name=".services.MyService2" />
+
+        <activity android:name=".AidlActivity">
+            <!-- <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>-->
+        </activity>
+        <!-- 远程服务 -->
+        <service
+            android:name=".services.MyService3"
+            android:process=":myService3" />
+
+        <activity android:name=".MessengerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".services.MyService1"></service>
+        <service
+            android:name=".services.MyService4"
+            android:process=":myService4"></service>
     </application>
 
 </manifest>

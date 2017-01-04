@@ -54,46 +54,46 @@
 别忘了在清单配置文件里配置。<service android:name=".services.MyService1"></service>接着我们来看一下startService，startService、bindService
 启动的生命周期调用。其中MainActivity的布局文件代码：
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:context="com.example.serviceexample.MainActivity">
-    
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:onClick="start"
-            android:text="start启动服务" />
-    
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:onClick="stop"
-            android:text="stop停止服务" />
-    
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:onClick="bind"
-            android:text="bind启动服务" />
-    
-        <Button
-            android:onClick="unbind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="unbind停止服务" />
-    
-    
-    </LinearLayout>
+        <?xml version="1.0" encoding="utf-8"?>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/activity_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:context="com.example.serviceexample.MainActivity">
+        
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:onClick="start"
+                android:text="start启动服务" />
+        
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:onClick="stop"
+                android:text="stop停止服务" />
+        
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:onClick="bind"
+                android:text="bind启动服务" />
+        
+            <Button
+                android:onClick="unbind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="unbind停止服务" />
+        
+        
+        </LinearLayout>
 
 
 #### startService
@@ -157,4 +157,18 @@
 点击bind启动服务，点击unbind停止服务。就看一下它的生命周期。onCreate()-->onBind()-->onUnbind()-->onDestroy();
 ![](https://github.com/mar-sir/studyIpc/blob/master/StudyIpc/serviceexample/src/main/java/images/step4.png?raw=true)
 ###### 服务是运行在主线程中的，不信你可以分别在MainActivity和MyService1的onCreate()方法中打印Log.e(TAG, TAG +"Thread id: "+ Thread.currentThread().getId());它们的线程ID是一样的。
+### 关于服务的onStartCommand()方法。
+onStartCommand()替换了onStart()方法，这里主要介绍一下onStartCommand()方法返回值的含义，它有四个返回值：START_STICKY、START_NOT_STICKY、START_REDELIVER_INTENT、START_STICKY_COMPATIBILITY。
 
+* START_STICKY
+ 如果service进程被kill掉，保留service的状态为开始状态，但不保留递送的intent对象。随后系统会尝试重新创建service，由于服务状态为开始状态，所以创建服务后一定会调用onStartCommand(Intent,int,int)方法。
+ 如果在此期间没有任何启动命令被传递到service，那么参数Intent将为null。
+ 
+* START_NOT_STICKY
+ “非粘性的”。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统不会自动重启该服务。
+ 
+* START_REDELIVER_INTENT
+ 重传Intent。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统会自动重启该服务，并将Intent的值传入。
+ 
+* START_STICKY_COMPATIBILITY
+  START_STICKY的兼容版本，但不保证服务被kill后一定能重启。

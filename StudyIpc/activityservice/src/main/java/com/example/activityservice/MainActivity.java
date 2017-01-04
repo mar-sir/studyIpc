@@ -38,6 +38,7 @@ private ServiceConnection  connection;
         };
     }
 
+
     public void downloadAction(View view) {
         //下載
        binder.doSomeThing();
@@ -50,5 +51,12 @@ private ServiceConnection  connection;
 
     public void goAidl(View view){
       startActivity(new Intent(this,AidlActivity.class));
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(connection);
     }
 }

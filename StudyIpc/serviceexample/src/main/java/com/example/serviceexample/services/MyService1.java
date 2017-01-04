@@ -17,7 +17,7 @@ public class MyService1 extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.e(TAG, TAG +"Thread id: "+ Thread.currentThread().getId());
+        Log.e(TAG, TAG + "Thread id: " + Thread.currentThread().getId());
         Log.e(TAG, TAG + "-->onCreate()");
     }
 
@@ -30,7 +30,8 @@ public class MyService1 extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.e(TAG, TAG + "-->onStartCommand()");
+        Log.e(TAG, TAG + "-->onStartCommand");
+
         return super.onStartCommand(intent, flags, startId);
     }
 
