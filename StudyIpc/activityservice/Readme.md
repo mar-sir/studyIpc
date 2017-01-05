@@ -85,16 +85,15 @@
         }
     }
 代码都有解释，也比较简单，下面我们配置一下服务<service android:name=".services.MyService2"></service>，运行程序。点击按钮运行,等四秒后运行结果如下：
-
+![](https://github.com/mar-sir/studyIpc/blob/master/StudyIpc/serviceexample/src/main/java/images/step5.png?raw=true)
 
 这样我们就通过Binder完成了与服务的简单通信。那我们配置服务的时候稍微加点东西就像
 
          <service android:name=".services.MyService2"
                     android:process=":myService2"></service>
 这样配置，相当于是远程服务，不在同一个进程，我们再次运行程序,发现：
-
-
-这样的通信方式不能满足与远程服务的通信，那么我给你介绍几个能和远程服务通信的方式。
+![](https://github.com/mar-sir/studyIpc/blob/master/StudyIpc/serviceexample/src/main/java/images/step6.png?raw=true)
+说明这样的通信方式不能满足与远程服务的通信，那么我给你介绍几个能和远程服务通信的方式。
 ### aidl  
 Android Interface definition language的缩写,它是一种android内部进程通信接口的描述语言，通过它我们可以定义进程间的通信接口。
 
@@ -110,7 +109,7 @@ Android Studio中创建.aidl文件很简单，跟新建Activity差不多，只�
             String getValue(int key);//查询
         }
 然后rebuild一下项目，你会发现在build/generated/source/debug/下面发现自动生成的代码IMyAidlInterface.java，如图:
-
+![](https://github.com/mar-sir/studyIpc/blob/master/StudyIpc/serviceexample/src/main/java/images/step7.png?raw=true)
 
 我们好奇，看一下IMyAidlInterface.java代码有些啥？
 
@@ -413,7 +412,7 @@ Android Studio中创建.aidl文件很简单，跟新建Activity差不多，只�
                 android:name=".services.MyService3"
                 android:process=":myService3"></service>
 ##### 运行结果
-
+![](https://github.com/mar-sir/studyIpc/blob/master/StudyIpc/serviceexample/src/main/java/images/step8.jpg?raw=true)
 可知是运行在不同的进程，并且aidl能解决与远程服务通信的问题，稍微比Binder复杂了点。
 
 ### Messenger（信使）
@@ -536,3 +535,7 @@ Android Studio中创建.aidl文件很简单，跟新建Activity差不多，只�
                     android:name=".services.MyService4"
                     android:process=":myService4"></service>
 ##### 运行结果
+![](https://github.com/mar-sir/studyIpc/blob/master/StudyIpc/serviceexample/src/main/java/images/step9.png?raw=true)
+
+
+[源码地址](https://github.com/mar-sir/studyIpc.git)
